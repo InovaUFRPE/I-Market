@@ -1,0 +1,2 @@
+# I-Market
+O Projeto consiste em um aplicativo onde redes de supermercado possam se cadastrar e vender seus produtos através do mesmo, usuário (pessoas físicas) poderiam realizar compras nos supermercados através do aplicativo, e o supermercado ficaria encarregado da entrega do produto. Usuários podem fazer compras em inúmeros supermercados ao mesmo tempo, o aplicativo fica encarregado de separar os pedidos para seus devidos supermercados e realizar a compra.
