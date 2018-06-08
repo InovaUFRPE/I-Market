@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.UUID;
 
 public class Api {
@@ -19,30 +20,26 @@ public class Api {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void lerCSV(String path) {
-        BufferedReader csvContent = null;
+    public void lerCSV(BufferedReader bufferedReader) {
+        BufferedReader csvConteudo = bufferedReader;
         String linha;
         String sep = ",";
         int cont = 0;
 
         try {
-            csvContent = new BufferedReader(new FileReader(path));
             Produto produto = new Produto();
-            while((linha = csvContent.readLine()) != null){
+            while((linha = csvConteudo.readLine()) != null){
                 cont ++;
                 String[] atributos = linha.split(sep);
                 if (cont >=  3){
                     produto.setUid(UUID.randomUUID().toString());
-                    produto.setNome(atributos[1]);
-                    produto.setPreco(Double.parseDouble(atributos[6].substring(3,7)));
-                    produto.setCategoria(atributos[4]);
-                    produto.setMarca(atributos[8]);
+                    produto.setNome(atributos[3]);
+                    produto.setPreco(Double.parseDouble(atributos[8].substring(3)));
+                    produto.setCategoria(atributos[6]);
+                    produto.setMarca(atributos[10]);
                     insertProduto(produto);
                 }
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,7 +50,7 @@ public class Api {
     }
     
     private void updateProduto(Produto produto, String nome, String preco, String categoria, String marca){
-        Produto produtoAt = new Produto;
+        Produto produtoAt = new Produto();
         produtoAt.setUid(produto.getUid());
         
         produtoAt.setNome(nome);
