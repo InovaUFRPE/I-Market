@@ -1,6 +1,6 @@
 package com.inovaufrpe.i_market.Dominio;
 
-class Cliente {
+public class Cliente {
   private int id;
   private int id_usuario;
   private String nome;
