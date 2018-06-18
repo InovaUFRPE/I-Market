@@ -2,14 +2,19 @@ package com.inovaufrpe.i_market.Utilidades;
 
 import com.inovaufrpe.i_market.Dominio.Carrinho;
 import com.inovaufrpe.i_market.Dominio.Cliente;
+import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.Dominio.Usuario;
+
+import java.util.ArrayList;
 
 public class Sessao{
 
   private static Sessao instance = null;
   private Usuario usuario;
   private Cliente cliente;
-  private Carrinho carrinho_atual;
+  private Carrinho carrinho_atual = new Carrinho();
+  private ArrayList<Produto> produtos = new ArrayList<>();
+  private Double totalPagar = 0.0;
 
   private Sessao(){
 
@@ -23,7 +28,15 @@ public class Sessao{
     return instance;
   }
 
-  public void setUsuario(Usuario usuario){
+  public void setProdutos(ArrayList<Produto> produtos){
+    this.produtos = produtos;
+  }
+
+    public ArrayList getProdutos() {
+        return produtos;
+    }
+
+    public void setUsuario(Usuario usuario){
     this.usuario = usuario;
   }
 
@@ -47,4 +60,11 @@ public class Sessao{
     return this.carrinho_atual;
   }
 
+  public Double getTotalPagar() {
+    return totalPagar;
+  }
+
+  public void setTotalPagar(Double totalPagar) {
+    this.totalPagar = totalPagar;
+  }
 }

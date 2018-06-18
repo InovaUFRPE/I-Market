@@ -77,6 +77,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
                     arrayProdutos.add(dicProdutos);
                     produtos.add(produto);
                 }
+                sessao.setProdutos(produtos);
                 setListViewProdutos();
 
             }
@@ -102,8 +103,8 @@ public class ListaProdutosActivity extends AppCompatActivity {
                     final Dialog d = new Dialog(ListaProdutosActivity.this);
                     d.setTitle("Escolha a quantidade");
                     d.setContentView(R.layout.dialog_quant_produtos);
-                    Button btnCancelar = d.findViewById(R.id.button1);
-                    Button btnAdicionar =  d.findViewById(R.id.button2);
+                    Button btnCancelar = d.findViewById(R.id.button2);
+                    Button btnAdicionar =  d.findViewById(R.id.button1);
                     final NumberPicker np = d.findViewById(R.id.numberPicker1);
                     np.setMaxValue(100); // max value 100
                     np.setMinValue(1);   // min value 0
@@ -145,7 +146,9 @@ public class ListaProdutosActivity extends AppCompatActivity {
     }
 
     public void goToCarrinho(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, CarrinhoActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
