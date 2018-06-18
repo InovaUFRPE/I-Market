@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GUI.MainActivity" />
+        <activity android:name=".GUI.CadastroUsuarioActivity" />
+        <activity android:name=".GUI.CarrinhoActivity"></activity>
     </application>
 
 </manifest>

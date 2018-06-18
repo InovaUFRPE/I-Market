@@ -23,7 +23,7 @@
         android:layout_toEndOf="@id/imageViewProduto"
         android:text="Nome"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textViewPreco"
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageViewProduto"
         android:layout_alignStart="@id/textViewNome"
-        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/imageViewProduto"
         android:text="Preco"
         android:textColor="@color/colorPrimary"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 </RelativeLayout>

@@ -66,30 +66,5 @@ public class Api {
         insertProduto(produtoAt);
     }
 
-    public ArrayList<Produto> getAllProdutos(){
-        listaProdutos = new ArrayList<Produto>();
-        Query query = databaseReference.child("Produto").child("uid");
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listaProdutos.clear();
-                for (DataSnapshot objSnapshot: dataSnapshot.getChildren()){
-                    Produto produto = objSnapshot.getValue(Produto.class);
-                    listaProdutos.add(produto);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return listaProdutos;
-
-
-    }
-
 
 }

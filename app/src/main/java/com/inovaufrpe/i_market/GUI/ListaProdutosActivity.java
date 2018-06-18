@@ -1,10 +1,20 @@
 package com.inovaufrpe.i_market.GUI;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.inovaufrpe.i_market.API.Api;
 import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.R;
+import com.inovaufrpe.i_market.Utilidades.Sessao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +33,7 @@ import java.util.List;
 
 public class ListaProdutosActivity extends AppCompatActivity {
     private ListView listView;
+    private Sessao sessao = Sessao.getInstancia();
     private ArrayList<Produto> produtos = new ArrayList<>();
     private ProdutoAdapter produtoAdapter;
     private DatabaseReference databaseReference;
@@ -44,7 +56,6 @@ public class ListaProdutosActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 produtos = new ArrayList<>();
                 produto = new Produto();
-                produtos.clear();
                 Iterable<DataSnapshot> iterable = dataSnapshot.getChildren();
                 for (DataSnapshot dataSnapshotChild: iterable){
                     produto = dataSnapshotChild.getValue(Produto.class);
@@ -52,9 +63,19 @@ public class ListaProdutosActivity extends AppCompatActivity {
 
                     Produto produto = dataSnapshotChild.getValue(Produto.class);
 
-                    dicProdutos.put("Nome", produto.getNome());
-                    dicProdutos.put("Preço",Double.toString(produto.getPreco()));
+                    String preco = Double.toString(produto.getPreco());
+                    int indexPonto = preco.indexOf(".");
+                    if (preco.substring(indexPonto, preco.length()).length()==2){
+                        preco = "R$ " + preco + "0";
+                    }
+                    else{
+                        preco = "R$ " + preco;
+                    }
+
+                    dicProdutos.put("Nome", getNomeMarcaProduto(produto));
+                    dicProdutos.put("Preço", preco);
                     arrayProdutos.add(dicProdutos);
+                    produtos.add(produto);
                 }
                 setListViewProdutos();
 
@@ -66,31 +87,65 @@ public class ListaProdutosActivity extends AppCompatActivity {
             }
         });
     }
-    private void setAdapter(){
-        ArrayAdapter arrayAdapter = new ArrayAdapter<Produto>(ListaProdutosActivity.this, R.layout.item_lista);
-        listView.setAdapter(arrayAdapter);
-    }
 
-    private void listarProdutos(){
-        Api api = new Api();
-        produtos = api.getAllProdutos();
-        listView.setAdapter(produtoAdapter);
-    }
 
     public void setListViewProdutos() {
         if (!arrayProdutos.isEmpty()) {
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista,
-                    new String[]{"Nome", "Preco"},
+                    new String[]{"Nome", "Preço"},
                     new int[]{R.id.textViewNome,
                             R.id.textViewPreco});
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                    // When clicked, show a toast with the TextView text
+                    final Dialog d = new Dialog(ListaProdutosActivity.this);
+                    d.setTitle("Escolha a quantidade");
+                    d.setContentView(R.layout.dialog_quant_produtos);
+                    Button btnCancelar = d.findViewById(R.id.button1);
+                    Button btnAdicionar =  d.findViewById(R.id.button2);
+                    final NumberPicker np = d.findViewById(R.id.numberPicker1);
+                    np.setMaxValue(100); // max value 100
+                    np.setMinValue(1);   // min value 0
+                    np.setWrapSelectorWheel(false);
+                    np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+                        @Override
+                        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+
+                        }
+                    });
+                    btnAdicionar.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View v) {
+                            int quantidade = np.getValue();
+                            Produto produto = produtos.get(position);
+                            sessao.getCarrinho().addNovoProduto(produto, quantidade);
+
+                        }
+                    });
+                    btnCancelar.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View v) {
+                            d.dismiss(); // dismiss the dialog
+                        }
+                    });
+                    d.show();
+                }
+            });
             //} else {
             //    Auxiliar.criarToast(getApplicationContext(), getString(R.string.sp_excecao_sem_materiais));
             //}
         }
     }
 
+    public String getNomeMarcaProduto(Produto produto){
+        return produto.getNome() + " - " + produto.getMarca();
+    }
 
-
+    public void goToCarrinho(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+    }
 
 }

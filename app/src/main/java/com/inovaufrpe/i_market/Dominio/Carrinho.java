@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Carrinho{
+  private  Produto produto;
   private Map<String, Integer> listaProdutos = new HashMap<>();
 
   public Map<String, Integer> getListaProdutos(){
@@ -15,19 +16,19 @@ public class Carrinho{
 
   }
 
-  public void setNovoProduto(Produto produto, int quantidade){
+  public void addNovoProduto(Produto produto, int quantidade){
     /*
     * iremos usar o id aleatorio do produto como chave
     * vamos deixar a quantidade dos produtos como valor por enquanto
     * depois vemos se colocamos o protudo e/ou outros dados tambem
     */
-    String id = produto.getUid;
-    if (listaProdutos.conteinsKey(id)){
-      qtdAntiga = listaProdutos.get(id);
-      listaProdutos.put(id, qtdAntiga + quantidade);
+    String uid = produto.getUid();
+    if (listaProdutos.containsKey(uid)){
+      int qtdAntiga = listaProdutos.get(uid);
+      listaProdutos.put(uid, qtdAntiga + quantidade);
 
     }else{
-      this.listaProdutos.put(id, quantidade);
+      this.listaProdutos.put(uid, quantidade);
     }
   }
 
@@ -38,14 +39,13 @@ public class Carrinho{
     *caso ambas sejam iguais o produto � removido da lista
     *se o usuario escolher remover todas as unidades do produto passamos a quantidadde total de unidades 
     */
-
-    String id = produto.getUid;
-    qtdAntiga = listaProdutos.get(id);
+    String uid = produto.getUid();
+    int qtdAntiga = listaProdutos.get(uid);
     if (qtdAntiga > quantidade){
-      listaProdutos.put(id, qtdAntiga - quantidade);
+      listaProdutos.put(uid, qtdAntiga - quantidade);
 
     }else{
-      this.listaProdutos.remove(id);
+      this.listaProdutos.remove(uid);
     }
   }
 }

@@ -1,8 +1,8 @@
 package com.inovaufrpe.i_market.Dominio;
 
 public class Cliente {
-  private int id;
-  private int id_usuario;
+  private String id;
+  private String uid_usuario;
   private String nome;
   private String endereco;
   private long cpf;
@@ -11,9 +11,9 @@ public class Cliente {
 
   public Cliente(){}
 
-  public Cliente(int id, int id_usuario, String nome, String endereco, long cpf, int num_telefone,  int num_cartao){
+  public Cliente(String id, String id_usuario, String nome, String endereco, long cpf, int num_telefone, int num_cartao){
     this.id = id;
-    this.id_usuario = id_usuario
+    this.uid_usuario = id_usuario;
     this.nome = nome;
     this.endereco = endereco;
     this.cpf = cpf;
@@ -21,13 +21,13 @@ public class Cliente {
     this.num_cartao = num_cartao;
   }
 
-  public int getId(){return id;}
+  public String getId(){return id;}
 
-  public void setId(int id){this.id = id;}
+  public void setId(String id){this.id = id;}
   
-  public int getid_usuario(){return id_usuario;}
+  public String geUtid_usuario(){return uid_usuario;}
 
-  public void setid_usuario(int id_usuario){this.id_usuario = id_usuario;}
+  public void setUid_usuario(String id_usuario){this.uid_usuario = id_usuario;}
   
   public String getNome() {return nome;}
 
