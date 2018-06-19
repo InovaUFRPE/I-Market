@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GUI.CarrinhoActivity">
+
+    <TextView
+        android:id="@+id/textViewTotal"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Total:"
+        android:textColor="@color/colorOnyxBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewCarrinho"
+        app:layout_constraintEnd_toStartOf="@+id/textViewPrecoTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPrecoTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginTop="16dp"
+        android:text="R$ 0.00"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewCarrinho"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPagar"
+        app:layout_constraintStart_toEndOf="@+id/textViewTotal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonPagar"
+        android:layout_width="99dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Pagar"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/listViewCarrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewPrecoTotal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTotal" />
+</android.support.constraint.ConstraintLayout>

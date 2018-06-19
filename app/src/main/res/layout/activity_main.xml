@@ -10,9 +10,11 @@
         android:id="@+id/buttonLoadCsv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="getCSV"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
         android:onClick="loadCsv"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="25dp" />
+        android:text="Load CSV"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
