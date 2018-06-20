@@ -27,6 +27,8 @@
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
         android:layout_marginRight="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
         android:layout_toLeftOf="@+id/numberPicker1"
         android:text="Adicionar" />
 

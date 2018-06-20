@@ -122,6 +122,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
                             int quantidade = np.getValue();
                             Produto produto = produtos.get(position);
                             sessao.getCarrinho().addNovoProduto(produto, quantidade);
+                            d.dismiss();
 
                         }
                     });
