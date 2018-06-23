@@ -21,10 +21,7 @@ public class ServicosUsuario {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void cadastrarUsuario(String email, String senha, String nick){
-        Usuario usuario = new Usuario();
-
-        usuario.setUid(UUID.randomUUID().toString());
+    public void cadastrarUsuario(Usuario usuario, String email, String senha, String nick){
         usuario.setEmail(email);
         usuario.setSenha(senha);
         usuario.setNick(nick);
