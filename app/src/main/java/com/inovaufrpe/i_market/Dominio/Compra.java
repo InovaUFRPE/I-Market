@@ -1,21 +1,20 @@
 package com.inovaufrpe.i_market.Dominio;
 
 public class Compra{
-  String uid_produto;
+  String uid_compra;
+  String produtos;
   String uid_cliente;
-  int quantidade;
-  double preco_unitario;
 
   public Compra(){
 
   }
 
-  public String getUid_produto(){
-    return this.uid_produto;
+  public String getProdutos(){
+    return this.produtos;
   }
 
-  public void setUid_produto(String uid_produto){
-    this.uid_produto = uid_produto;
+  public void setProdutos(String produtos){
+    this.produtos = produtos;
   }
 
   public String getUid_cliente(){
@@ -26,23 +25,13 @@ public class Compra{
     this.uid_cliente = uid_cliente;
   }
 
-  public int getQuantidade(){
-    return this.quantidade;
+  public String getUid_compra() {
+    return uid_compra;
   }
 
-  public void setQuantidade(int quantidade){
-    this.quantidade = quantidade;
+  public void setUid_compra(String uid_compra) {
+    this.uid_compra = uid_compra;
   }
 
-  public double getPreco_unitario(){
-    return this.preco_unitario;
-  }
 
-  public void setPreco_unitario(double preco_unitario){
-    this.preco_unitario = preco_unitario;
-  }
-
-  public double getPreco_Total(){
-    return (this.preco_unitario * this.quantidade);
-  }
 }

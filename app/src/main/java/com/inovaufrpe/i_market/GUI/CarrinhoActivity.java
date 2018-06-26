@@ -13,7 +13,10 @@ import android.widget.NumberPicker;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.inovaufrpe.i_market.Dominio.Carrinho;
+import com.inovaufrpe.i_market.Dominio.Compra;
 import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.R;
 import com.inovaufrpe.i_market.Utilidades.Sessao;
@@ -21,6 +24,8 @@ import com.inovaufrpe.i_market.Utilidades.Sessao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class CarrinhoActivity extends AppCompatActivity {
     private TextView textTotal;
@@ -29,6 +34,7 @@ public class CarrinhoActivity extends AppCompatActivity {
     private Sessao sessao = Sessao.getInstancia();
     private ArrayList<Produto> produtos = new ArrayList<>();
     private List<HashMap<String, String>> arrayProdutos = new ArrayList<>();
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,8 @@ public class CarrinhoActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listViewCarrinho);
         textTotal = findViewById(R.id.textViewPrecoTotal);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         setListViewProdutos();
 
@@ -148,6 +156,7 @@ public class CarrinhoActivity extends AppCompatActivity {
 
     private Double calculaPreco(Double acumulado, Double preco, Integer qtd){
         Double dPrecoTotal = acumulado + (preco * qtd);
+        sessao.setTotalPagar(dPrecoTotal);
         return dPrecoTotal;
     }
 
@@ -155,6 +164,26 @@ public class CarrinhoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListaProdutosActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void pagamento(){
+        if(sessao.getCarrinho().getListaProdutos() != null){
+            Compra compra = new Compra();
+            String uid = sessao.getUsuario().getUid();
+            String carrinhoStr = "";
+            Map<String,Integer> carrinho = sessao.getCarrinho().getListaProdutos();
+            for (Map.Entry<String,Integer> entry : carrinho.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue().toString();
+                carrinhoStr = carrinhoStr + key + ":" + value + ",";
+            }
+            compra.setUid_cliente(uid);
+            compra.setProdutos(carrinhoStr);
+            compra.setUid_compra(UUID.randomUUID().toString());
+            databaseReference.child("Compra").child(compra.getUid_compra()).setValue(compra);
+        }
+
+
     }
 
 
