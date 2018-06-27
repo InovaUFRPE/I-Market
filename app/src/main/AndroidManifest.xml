@@ -12,11 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".GUI.ListaProdutosActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".GUI.MainActivity" />
         <activity android:name=".GUI.CadastroUsuarioActivity" />
-        <activity android:name=".GUI.CarrinhoActivity" />
+        <activity android:name=".GUI.CarrinhoActivity">
+
+        </activity>
         <activity android:name=".GUI.GerenciarProdutosActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

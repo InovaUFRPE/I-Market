@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -166,22 +167,47 @@ public class CarrinhoActivity extends AppCompatActivity {
         finish();
     }
 
-    public void pagamento(){
-        if(sessao.getCarrinho().getListaProdutos() != null){
-            Compra compra = new Compra();
-            String uid = sessao.getUsuario().getUid();
-            String carrinhoStr = "";
-            Map<String,Integer> carrinho = sessao.getCarrinho().getListaProdutos();
-            for (Map.Entry<String,Integer> entry : carrinho.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue().toString();
-                carrinhoStr = carrinhoStr + key + ":" + value + ",";
+    public void pagamento(View view){
+        final Dialog dialogPagamento = new Dialog(CarrinhoActivity.this);
+        dialogPagamento.setContentView(R.layout.dialog_comfirmcao_pag);
+        dialogPagamento.setTitle("Confirmar Pagamento?");
+        Button btnConfirmar = dialogPagamento.findViewById(R.id.buttonConfirmar);
+        Button btnCancelar2 =  dialogPagamento.findViewById(R.id.buttonCancelar2);
+        btnConfirmar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(sessao.getCarrinho().getListaProdutos() != null){
+                    Compra compra = new Compra();
+                    String uid = sessao.getUsuario().getUid();
+                    String carrinhoStr = "";
+                    Map<String,Integer> carrinho = sessao.getCarrinho().getListaProdutos();
+                    for (Map.Entry<String,Integer> entry : carrinho.entrySet()) {
+                        String key = entry.getKey();
+                        String value = entry.getValue().toString();
+                        carrinhoStr = carrinhoStr + key + ":" + value + ",";
+                    }
+                    compra.setUid_cliente(uid);
+                    compra.setProdutos(carrinhoStr);
+                    compra.setUid_compra(UUID.randomUUID().toString());
+                    databaseReference.child("Compra").child(compra.getUid_compra()).setValue(compra);
+
+                    Toast.makeText(getApplicationContext(), "Pagamento efetuado com sucesso!",
+                            Toast.LENGTH_LONG).show();
+                    dialogPagamento.dismiss();
+                }
+
             }
-            compra.setUid_cliente(uid);
-            compra.setProdutos(carrinhoStr);
-            compra.setUid_compra(UUID.randomUUID().toString());
-            databaseReference.child("Compra").child(compra.getUid_compra()).setValue(compra);
-        }
+
+        });
+
+        btnCancelar2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                dialogPagamento.dismiss();
+            }
+        });
+        dialogPagamento.show();
 
 
     }
