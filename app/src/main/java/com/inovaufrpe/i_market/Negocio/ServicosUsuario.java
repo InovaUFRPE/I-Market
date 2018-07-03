@@ -7,6 +7,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.inovaufrpe.i_market.Dominio.Usuario;
+import com.inovaufrpe.i_market.Utilidades.Sessao;
 
 import java.util.UUID;
 
@@ -21,10 +22,9 @@ public class ServicosUsuario {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void cadastrarUsuario(Usuario usuario, String email, String senha, String nick){
+    public void cadastrarUsuario(Usuario usuario, String email, String senha){
         usuario.setEmail(email);
         usuario.setSenha(senha);
-        usuario.setNick(nick);
 
         this.insertUsuario(usuario);
     }
@@ -51,5 +51,26 @@ public class ServicosUsuario {
             }
         });
         //return usuario = new Usuario();
+    }
+
+    public void searchUsuarioByEmail(String email, String senha){
+        Query query = databaseReference.child("Usuario").orderByChild("email").equalTo(email);
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    usuario = dataSnapshot1.getValue(Usuario.class);
+                }
+                Sessao sessao = Sessao.getInstancia();
+                sessao.setUsuario(usuario);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

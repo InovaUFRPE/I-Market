@@ -16,11 +16,11 @@ public class ServicosCliente {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void cadastrarCliente(String email, String senha, String nick, String nome, String endereco, long cpf, int num_telefone,  int num_cartao){
+    public void cadastrarCliente(String email, String senha, String nome, String endereco, long cpf, int num_telefone,  int num_cartao){
         ServicosUsuario servicosUsuario = new ServicosUsuario();
         Usuario usuario = new Usuario();
         usuario.setUid(UUID.randomUUID().toString());
-        servicosUsuario.cadastrarUsuario(usuario,email, senha, nick);
+        servicosUsuario.cadastrarUsuario(usuario,email, senha);
 
         Cliente cliente = new Cliente();
 

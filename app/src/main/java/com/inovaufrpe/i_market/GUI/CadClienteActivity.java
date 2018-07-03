@@ -17,7 +17,6 @@ public class CadClienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cad_cliente);
 
-        edtNick = (EditText)findViewById(R.id.edtNick);
         edtSenha = (EditText)findViewById(R.id.edtSenha);
         edtEmail = (EditText)findViewById(R.id.edtEmail);
         edtCPF = (EditText)findViewById(R.id.edtCpf);
@@ -29,7 +28,6 @@ public class CadClienteActivity extends AppCompatActivity {
     }
 
     public void cadastrarCliente(View view) {
-        String nick = edtNick.getText().toString();
         String senha = edtSenha.getText().toString();
         String email = edtEmail.getText().toString();
 
@@ -43,7 +41,7 @@ public class CadClienteActivity extends AppCompatActivity {
         int ncartao = Integer.parseInt(strncartao);
 
         ServicosCliente servicoCliente = new ServicosCliente();
-        servicoCliente.cadastrarCliente(email, senha, nick, nome, endereco, cpf, telefone, ncartao);
+        servicoCliente.cadastrarCliente(email, senha, nome, endereco, cpf, telefone, ncartao);
         /*Intent it = new Intent(CadClienteActivity.this, MainActivity.class);
         startActivity(it);*/
         finish();

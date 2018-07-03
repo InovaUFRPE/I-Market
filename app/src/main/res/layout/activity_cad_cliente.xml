@@ -4,89 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadClienteActivity"
+    tools:context=".GUI.CadClienteActivity"
     tools:layout_editor_absoluteY="81dp">
-
-    <EditText
-        android:id="@+id/edtNick"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Nick"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtSenha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Senha"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNick" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/edtCpf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
-
-    <EditText
-        android:id="@+id/edtCpf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <EditText
-        android:id="@+id/edtNome"
+        android:id="@+id/edtEmail"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginStart="14dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/edtSenha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+
+    <EditText
+        android:id="@+id/edtCpf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="CPF"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edtTelefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
         android:id="@+id/edtTelefone"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
@@ -95,13 +82,13 @@
         app:layout_constraintBottom_toTopOf="@+id/edtEndereco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCpf" />
 
     <EditText
         android:id="@+id/edtEndereco"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
@@ -116,13 +103,13 @@
         android:id="@+id/edtCartao"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="17dp"
         android:layout_marginStart="17dp"
         android:ems="10"
         android:hint="Nº do Cartão"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEndereco" />
@@ -141,25 +128,21 @@
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCartao" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="1dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
         android:onClick="cancelarCadastro"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCadastrar"
         app:layout_constraintTop_toBottomOf="@+id/edtCartao" />
-
-
 
 
 </android.support.constraint.ConstraintLayout>
