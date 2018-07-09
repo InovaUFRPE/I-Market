@@ -11,11 +11,17 @@
         android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GUI.ListaProdutosActivity"></activity>
-        <activity android:name=".GUI.MainActivity" />
+        <activity android:name=".GUI.ListaProdutosActivity">
+
+        </activity>
+        <activity android:name=".GUI.MainActivity"/>
         <activity android:name=".GUI.CadClienteActivity"/>
-        <activity android:name=".GUI.CarrinhoActivity"></activity>
-        <activity android:name=".GUI.GerenciarProdutosActivity"></activity>
+        <activity android:name=".GUI.CarrinhoActivity">
+
+        </activity>
+        <activity android:name=".GUI.GerenciarProdutosActivity">
+
+        </activity>
         <activity android:name=".GUI.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

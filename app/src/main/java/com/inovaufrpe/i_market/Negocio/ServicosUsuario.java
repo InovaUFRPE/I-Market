@@ -53,17 +53,18 @@ public class ServicosUsuario {
         //return usuario = new Usuario();
     }
 
-    public void searchUsuarioByEmail(String email, String senha){
-        Query query = databaseReference.child("Usuario").orderByChild("email").equalTo(email);
-
-        query.addValueEventListener(new ValueEventListener() {
+    public void searchUsuarioByEmail(final String email, String senha, final Sessao sessao){
+        databaseReference.child("Usuario").orderByChild("email").equalTo(email).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    usuario = dataSnapshot1.getValue(Usuario.class);
+                Iterable<DataSnapshot> iterable = dataSnapshot.getChildren();
+                for (DataSnapshot dataSnapshot1 : iterable){
+                    Usuario usuario = dataSnapshot1.getValue(Usuario.class);
+                    if (usuario.getEmail().equals(email)){
+                        sessao.setUsuario(usuario);
+                    }
+
                 }
-                Sessao sessao = Sessao.getInstancia();
-                sessao.setUsuario(usuario);
 
             }
 

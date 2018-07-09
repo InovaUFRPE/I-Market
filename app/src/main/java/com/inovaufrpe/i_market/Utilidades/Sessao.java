@@ -32,11 +32,11 @@ public class Sessao{
     this.produtos = produtos;
   }
 
-    public ArrayList getProdutos() {
-        return produtos;
-    }
+  public ArrayList getProdutos() {
 
-    public void setUsuario(Usuario usuario){
+    return produtos;
+  }
+  public void setUsuario(Usuario usuario){
     this.usuario = usuario;
   }
 

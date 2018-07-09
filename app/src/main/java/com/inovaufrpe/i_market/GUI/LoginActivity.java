@@ -15,16 +15,18 @@ import com.inovaufrpe.i_market.Utilidades.Validacao;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtEmail, edtSenha;
+    private Sessao sessao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        edtEmail = findViewById(R.id.editTextEmail);
+        edtSenha = findViewById(R.id.editTextSenha);
+        sessao = Sessao.getInstancia();
     }
 
     public void entrar(View view){
-        edtEmail = findViewById(R.id.editTextEmail);
-        edtSenha = findViewById(R.id.editTextSenha);
         String email = edtEmail.getText().toString();
         String senha = edtSenha.getText().toString();
 
@@ -43,8 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (!vazio){
             ServicosUsuario servicosUsuario = new ServicosUsuario();
-            servicosUsuario.searchUsuarioByEmail(email, senha);
-            Sessao sessao = Sessao.getInstancia();
+            servicosUsuario.searchUsuarioByEmail(email, senha, sessao);
             boolean valido = false;
             if (sessao.getUsuario() != null){
                 Usuario usuario = sessao.getUsuario();

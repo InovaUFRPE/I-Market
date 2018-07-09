@@ -29,6 +29,7 @@ import com.inovaufrpe.i_market.Utilidades.Sessao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class ListaProdutosActivity extends AppCompatActivity {
@@ -36,9 +37,8 @@ public class ListaProdutosActivity extends AppCompatActivity {
     private Sessao sessao = Sessao.getInstancia();
     private ArrayList<Produto> produtos = new ArrayList<>();
     private ProdutoAdapter produtoAdapter;
-    private DatabaseReference databaseReference;
-    private FirebaseDatabase firebaseDatabase;
     private Produto produto;
+    private EditText edtPesquisa;
     private List<HashMap<String, String>> arrayProdutos = new ArrayList<>();
 
 
@@ -46,10 +46,10 @@ public class ListaProdutosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produtos);
-
         listView = findViewById(R.id.listViewProdutos);
+        edtPesquisa = findViewById(R.id.editTextPesquisa);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         databaseReference.child("Produto").addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,7 +78,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
                     produtos.add(produto);
                 }
                 sessao.setProdutos(produtos);
-                setListViewProdutos();
+                setListViewProdutos(arrayProdutos);
 
             }
 
@@ -90,7 +90,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
     }
 
 
-    public void setListViewProdutos() {
+    public void setListViewProdutos(List<HashMap<String, String>> arrayProdutos) {
         if (!arrayProdutos.isEmpty()) {
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista,
                     new String[]{"Nome", "Preço"},
@@ -150,6 +150,37 @@ public class ListaProdutosActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CarrinhoActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void pesquisarByNome(View view){
+        String texto = edtPesquisa.getText().toString();
+
+        List<HashMap<String, String>> arrayDicProdutos = new ArrayList<>();
+        HashMap<String,String> dicProdutos = new HashMap<>();
+        ArrayList todosProdutos = sessao.getProdutos();
+
+        for(Iterator<Produto> i = todosProdutos.iterator(); i.hasNext();){
+            String nomeProduto = i.next().getNome();
+            if (nomeProduto.toLowerCase().contains(texto)){
+
+                String preco = Double.toString(i.next().getPreco());
+                int indexPonto = preco.indexOf(".");
+                if (preco.substring(indexPonto, preco.length()).length()==2){
+                    preco = "R$ " + preco + "0";
+                }
+                else{
+                    preco = "R$ " + preco;
+                }
+                dicProdutos.put("Nome", getNomeMarcaProduto(i.next()));
+                dicProdutos.put("Preço", preco);
+                arrayDicProdutos.add(dicProdutos);
+                setListViewProdutos(arrayDicProdutos);
+            }
+        }
+    }
+
+    public void voltarListaCompleta(View view){
+        setListViewProdutos(arrayProdutos);
     }
 
 }
