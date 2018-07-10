@@ -156,14 +156,15 @@ public class ListaProdutosActivity extends AppCompatActivity {
         String texto = edtPesquisa.getText().toString();
 
         List<HashMap<String, String>> arrayDicProdutos = new ArrayList<>();
-        HashMap<String,String> dicProdutos = new HashMap<>();
         ArrayList todosProdutos = sessao.getProdutos();
 
         for(Iterator<Produto> i = todosProdutos.iterator(); i.hasNext();){
-            String nomeProduto = i.next().getNome();
+            Produto produto = i.next();
+            String nomeProduto = getNomeMarcaProduto(produto);
             if (nomeProduto.toLowerCase().contains(texto)){
+                HashMap<String,String> dicProdutos = new HashMap<>();
 
-                String preco = Double.toString(i.next().getPreco());
+                String preco = Double.toString(produto.getPreco());
                 int indexPonto = preco.indexOf(".");
                 if (preco.substring(indexPonto, preco.length()).length()==2){
                     preco = "R$ " + preco + "0";
@@ -171,12 +172,12 @@ public class ListaProdutosActivity extends AppCompatActivity {
                 else{
                     preco = "R$ " + preco;
                 }
-                dicProdutos.put("Nome", getNomeMarcaProduto(i.next()));
+                dicProdutos.put("Nome", nomeProduto);
                 dicProdutos.put("Preço", preco);
                 arrayDicProdutos.add(dicProdutos);
-                setListViewProdutos(arrayDicProdutos);
             }
         }
+        setListViewProdutos(arrayDicProdutos);
     }
 
     public void voltarListaCompleta(View view){
