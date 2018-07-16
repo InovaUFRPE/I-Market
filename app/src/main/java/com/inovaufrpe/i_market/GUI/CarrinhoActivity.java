@@ -194,6 +194,12 @@ public class CarrinhoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Pagamento efetuado com sucesso!",
                             Toast.LENGTH_LONG).show();
                     dialogPagamento.dismiss();
+                    sessao.setCarrinho(null);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Nenhum produto encontrado.",
+                            Toast.LENGTH_LONG).show();
+
                 }
 
             }

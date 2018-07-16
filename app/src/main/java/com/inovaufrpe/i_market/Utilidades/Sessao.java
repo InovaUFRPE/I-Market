@@ -14,6 +14,7 @@ public class Sessao{
   private Cliente cliente;
   private Carrinho carrinho_atual = new Carrinho();
   private ArrayList<Produto> produtos = new ArrayList<>();
+  private ArrayList<Usuario> usuarios = new ArrayList<>();
   private Double totalPagar = 0.0;
 
   private Sessao(){
@@ -58,6 +59,14 @@ public class Sessao{
 
   public Carrinho getCarrinho(){
     return this.carrinho_atual;
+  }
+
+  public ArrayList<Usuario> getUsuarios() {
+    return usuarios;
+  }
+
+  public void setUsuarios(ArrayList<Usuario> usuarios) {
+    this.usuarios = usuarios;
   }
 
   public Double getTotalPagar() {

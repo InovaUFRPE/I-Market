@@ -7,15 +7,26 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.Dominio.Usuario;
 import com.inovaufrpe.i_market.Negocio.ServicosUsuario;
 import com.inovaufrpe.i_market.R;
 import com.inovaufrpe.i_market.Utilidades.Sessao;
 import com.inovaufrpe.i_market.Utilidades.Validacao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText edtEmail, edtSenha;
     private Sessao sessao;
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +35,29 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.editTextEmail);
         edtSenha = findViewById(R.id.editTextSenha);
         sessao = Sessao.getInstancia();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> iterable = dataSnapshot.getChildren();
+                for (DataSnapshot dataSnapshotChild : iterable) {
+
+                    Usuario Usuario = dataSnapshotChild.getValue(Usuario.class);
+                    usuarios.add(Usuario);
+                }
+                sessao.setUsuarios(usuarios);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+
+        });
     }
 
     public void entrar(View view){
@@ -44,25 +78,32 @@ public class LoginActivity extends AppCompatActivity {
             vazio = true;
         }
         if (!vazio){
-            ServicosUsuario servicosUsuario = new ServicosUsuario();
-            servicosUsuario.searchUsuarioByEmail(email, senha, sessao);
             boolean valido = false;
-            if (sessao.getUsuario() != null){
-                Usuario usuario = sessao.getUsuario();
-                valido = (usuario.getSenha().equals(senha));
-            }
-            if(valido){
-                Intent intent = new Intent(this, ListaProdutosActivity.class);
-                startActivity(intent);
-                finish();
+            if (sessao.getUsuarios() != null){
+                ArrayList todosUsuarios = sessao.getUsuarios();
+
+                for(Iterator<Usuario> i = todosUsuarios.iterator(); i.hasNext();){
+                    Usuario usuario = i.next();
+                    if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)){
+                        valido = true;
+                        sessao.setUsuario(usuario);
+                        break;
+                    }
+                }
+                if (valido){
+                    Intent intent = new Intent(this, ListaProdutosActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Email ou senha incorretos!",
+                            Toast.LENGTH_LONG).show();
+                }
             }
             else {
-                sessao.setUsuario(null);
-                Toast.makeText(getApplicationContext(), "Email ou senha incorretos!",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Email ou senha incorretos!", Toast.LENGTH_LONG).show();
             }
         }
-
 
     }
 
