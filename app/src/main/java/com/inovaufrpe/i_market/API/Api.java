@@ -65,6 +65,9 @@ public class Api {
         
         insertProduto(produtoAt);
     }
-
+    
+    public void deletarProduto(Produto produto){
+        databaseReference.child("Produto").child(produto.getUid()).removeValue();
+    }
 
 }
