@@ -2,6 +2,7 @@ package com.inovaufrpe.i_market.Utilidades;
 
 import com.inovaufrpe.i_market.Dominio.Carrinho;
 import com.inovaufrpe.i_market.Dominio.Cliente;
+import com.inovaufrpe.i_market.Dominio.Compra;
 import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.Dominio.Usuario;
 
@@ -16,9 +17,28 @@ public class Sessao{
   private ArrayList<Produto> produtos = new ArrayList<>();
   private ArrayList<Usuario> usuarios = new ArrayList<>();
   private Double totalPagar = 0.0;
+  private ArrayList<Compra> compras = new ArrayList<>();
+  private Compra compra_atual;
+  private Produto produtoAtualizar;
 
   private Sessao(){
 
+  }
+
+  public Produto getProdutoAtualizar() {
+    return produtoAtualizar;
+  }
+
+  public void setProdutoAtualizar(Produto produtoAtualizar) {
+    this.produtoAtualizar = produtoAtualizar;
+  }
+
+  public Compra getCompra_atual() {
+    return compra_atual;
+  }
+
+  public void setCompra_atual(Compra compra_atual) {
+    this.compra_atual = compra_atual;
   }
 
   public static Sessao getInstancia(){
@@ -33,10 +53,8 @@ public class Sessao{
     this.produtos = produtos;
   }
 
-  public ArrayList getProdutos() {
+  public ArrayList getProdutos() { return produtos;}
 
-    return produtos;
-  }
   public void setUsuario(Usuario usuario){
     this.usuario = usuario;
   }
@@ -75,5 +93,13 @@ public class Sessao{
 
   public void setTotalPagar(Double totalPagar) {
     this.totalPagar = totalPagar;
+  }
+
+  public ArrayList<Compra> getCompras() {
+    return compras;
+  }
+
+  public void setCompras(ArrayList<Compra> compras) {
+    this.compras = compras;
   }
 }

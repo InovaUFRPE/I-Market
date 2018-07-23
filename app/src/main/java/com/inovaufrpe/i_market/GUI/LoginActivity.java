@@ -79,7 +79,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (!vazio){
             boolean valido = false;
-            if (sessao.getUsuarios() != null){
+            if (email.equals("admin") && senha.equals("admin")){
+                Intent intent = new Intent(this, GerenciarProdutosActivity.class);
+                startActivity(intent);
+                finish();
+            }else if (sessao.getUsuarios() != null){
                 ArrayList todosUsuarios = sessao.getUsuarios();
 
                 for(Iterator<Usuario> i = todosUsuarios.iterator(); i.hasNext();){

@@ -1,10 +1,10 @@
 ,,Cadastro de Produtos,,,,,,,,,
-,,C?digo,Nome,Unidade,GÃªnero/Tipo,Categoria,Custo unit?rio,Pre?o de venda,Fornecedor,Marca,C?digo de Barras - EAN
-,,1,Queijo Prato 700g,n/a,n/a,Latic?nio,n/a,R$ 15.00,Exemplo,Sadia,7896352124598
-,,2,Leite Condensado 200mL,n/a,n/a,Latic?nio,n/a,R$ 4.80,Exemplo,Mo?a,
+,,Código,Nome,Unidade,Gênero/Tipo,Categoria,Custo unitário,Preço de venda,Fornecedor,Marca,Código de Barras - EAN
+,,1,Queijo Prato 700g,n/a,n/a,Laticínio,n/a,R$ 15.00,Exemplo,Sadia,7896352124598
+,,2,Leite Condensado 200mL,n/a,n/a,Laticínio,n/a,R$ 4.80,Exemplo,Moça,
 ,,3,Espaguete 450g,n/a,n/a,Massa,n/a,R$ 3.15,Exemplo,Vitarella,
-,,4,Achocolatado em p? 500g,n/a,n/a,Mercearia,n/a,R$ 15.00,Exemplo,Nescau 2.0,
-,,5,?gua Mineral 2L,n/a,n/a,Bebida,n/a,R$ 2.80,Exemplo,Indai?,
+,,4,Achocolatado em pó 500g,n/a,n/a,Mercearia,n/a,R$ 15.00,Exemplo,Nescau 2.0,
+,,5,água Mineral 2L,n/a,n/a,Bebida,n/a,R$ 2.80,Exemplo,Indaiá,
 ,,6,Refrigerante cola 3L,n/a,n/a,Bebida,n/a,R$ 6.70,Exemplo,Coca-cola,
 ,,7,Salgadinho de Milho 250g,n/a,n/a,Mercearia,n/a,R$ 2.25,Exemplo,Cheetos,
 ,,8,Presunto fatiado 500g,n/a,n/a,Frio,n/a,R$ 6.90,Exemplo,Seara,

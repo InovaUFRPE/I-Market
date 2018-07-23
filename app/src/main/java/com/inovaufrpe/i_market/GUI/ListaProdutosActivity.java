@@ -139,6 +139,10 @@ public class ListaProdutosActivity extends AppCompatActivity {
             //} else {
             //    Auxiliar.criarToast(getApplicationContext(), getString(R.string.sp_excecao_sem_materiais));
             //}
+        }else{
+            listView.setAdapter(null);
+            Toast.makeText(getApplicationContext(), "Nenhum produto encontrado.",
+                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -182,6 +186,12 @@ public class ListaProdutosActivity extends AppCompatActivity {
 
     public void voltarListaCompleta(View view){
         setListViewProdutos(arrayProdutos);
+    }
+
+    public void goToHistorico(View view){
+        Intent intent = new Intent(this, HistoricoComprasActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

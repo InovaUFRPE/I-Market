@@ -22,7 +22,9 @@ import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.R;
 import com.inovaufrpe.i_market.Utilidades.Sessao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,16 +80,17 @@ public class CarrinhoActivity extends AppCompatActivity {
                         preco = "R$ " + preco;
                     }
                     dicProdutos.put("Nome", getNomeMarcaProduto(produto));
-                    dicProdutos.put("PreÃ§o", preco);
+                    dicProdutos.put("Preço", preco);
                     dicProdutos.put("Qtd", Integer.toString(qtd));
                     arrayProdutos.add(dicProdutos);
                 }
             }
+            sessao.setTotalPagar(acumulado);
             precoTotal = getPrecoTotalStr(acumulado);
 
 
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista2,
-                    new String[]{"Nome", "PreÃ§o", "Qtd"},
+                    new String[]{"Nome", "Preço", "Qtd"},
                     new int[]{R.id.textViewNome,
                             R.id.textViewPreco,
                             R.id.textViewQtd});
@@ -186,7 +189,11 @@ public class CarrinhoActivity extends AppCompatActivity {
                         String value = entry.getValue().toString();
                         carrinhoStr = carrinhoStr + key + ":" + value + ",";
                     }
+                    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
                     compra.setUid_cliente(uid);
+                    compra.setPrecoTotal(sessao.getTotalPagar());
+                    compra.setDate(date);
                     compra.setProdutos(carrinhoStr);
                     compra.setUid_compra(UUID.randomUUID().toString());
                     databaseReference.child("Compra").child(compra.getUid_compra()).setValue(compra);
@@ -195,6 +202,11 @@ public class CarrinhoActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     dialogPagamento.dismiss();
                     sessao.setCarrinho(null);
+                    sessao.setTotalPagar(0.0);
+                    Intent intent = new Intent(CarrinhoActivity.this, ListaProdutosActivity.class);
+                    startActivity(intent);
+                    finish();
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Nenhum produto encontrado.",

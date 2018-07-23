@@ -4,6 +4,8 @@ public class Compra{
   String uid_compra;
   String produtos;
   String uid_cliente;
+  String date;
+  double precoTotal = 0.0;
 
   public Compra(){
 
@@ -33,5 +35,19 @@ public class Compra{
     this.uid_compra = uid_compra;
   }
 
+  public String getDate() {
+    return date;
+  }
 
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public double getPrecoTotal() {
+    return precoTotal;
+  }
+
+  public void setPrecoTotal(double precoTotal) {
+    this.precoTotal = precoTotal;
+  }
 }

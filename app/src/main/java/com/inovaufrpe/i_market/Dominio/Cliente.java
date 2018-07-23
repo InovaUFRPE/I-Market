@@ -5,13 +5,13 @@ public class Cliente {
   private String uid_usuario;
   private String nome;
   private String endereco;
-  private long cpf;
-  private int num_telefone;
-  private int num_cartao;
+  private String cpf;
+  private String num_telefone;
+  private String num_cartao;
 
   public Cliente(){}
 
-  public Cliente(String id, String id_usuario, String nome, String endereco, long cpf, int num_telefone, int num_cartao){
+  public Cliente(String id, String id_usuario, String nome, String endereco, String cpf, String num_telefone, String num_cartao){
     this.id = id;
     this.uid_usuario = id_usuario;
     this.nome = nome;
@@ -24,7 +24,7 @@ public class Cliente {
   public String getId(){return id;}
 
   public void setId(String id){this.id = id;}
-  
+
   public String geUtid_usuario(){return uid_usuario;}
 
   public void setUid_usuario(String id_usuario){this.uid_usuario = id_usuario;}
@@ -37,16 +37,16 @@ public class Cliente {
 
   public void setEndereco(String endereco) {this.endereco = endereco;}
 
-  public long getCpf() {return cpf;}
+  public String getCpf() {return cpf;}
 
-  public void setCpf(long cpf) {this.cpf = cpf;}
+  public void setCpf(String cpf) {this.cpf = cpf;}
 
-  public int getNum_telefone() {return num_telefone;}
+  public String getNum_telefone() {return num_telefone;}
 
-  public void setNum_telefone(int num_telefone) {this.num_telefone = num_telefone;}
+  public void setNum_telefone(String num_telefone) {this.num_telefone = num_telefone;}
 
-  public int getNum_cartao() {return num_cartao;}
+  public String getNum_cartao() {return num_cartao;}
 
-  public void setNum_cartao(int num_cartao) {this.num_cartao = num_cartao;}
+  public void setNum_cartao(String num_cartao) {this.num_cartao = num_cartao;}
 
 }

@@ -11,17 +11,11 @@
         android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GUI.ListaProdutosActivity">
-
-        </activity>
-        <activity android:name=".GUI.MainActivity"/>
-        <activity android:name=".GUI.CadClienteActivity"/>
-        <activity android:name=".GUI.CarrinhoActivity">
-
-        </activity>
-        <activity android:name=".GUI.GerenciarProdutosActivity">
-
-        </activity>
+        <activity android:name=".GUI.ListaProdutosActivity" />
+        <activity android:name=".GUI.MainActivity" />
+        <activity android:name=".GUI.CadClienteActivity" />
+        <activity android:name=".GUI.CarrinhoActivity" />
+        <activity android:name=".GUI.GerenciarProdutosActivity" />
         <activity android:name=".GUI.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GUI.HistoricoComprasActivity" />
+        <activity android:name=".GUI.ProdutosCompraActivity" />
+        <activity android:name=".GUI.ReceitaActivity" />
+        <activity android:name=".GUI.AtualizarActivity"></activity>
     </application>
 
 </manifest>

@@ -54,10 +54,7 @@ public class Api {
         databaseReference.child("Produto").child(produto.getUid()).setValue(produto);
     }
     
-    private void updateProduto(Produto produto, String nome, String preco, String categoria, String marca){
-        Produto produtoAt = new Produto();
-        produtoAt.setUid(produto.getUid());
-        
+    public void updateProduto(Produto produtoAt, String nome, String preco, String categoria, String marca){
         produtoAt.setNome(nome);
         produtoAt.setPreco(Double.parseDouble(preco));
         produtoAt.setCategoria(categoria);

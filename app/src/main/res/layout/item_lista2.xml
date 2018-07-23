@@ -43,8 +43,8 @@
         android:layout_alignBottom="@+id/imageViewProduto"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="150dp"
-        android:layout_toEndOf="@id/textViewPreco"
+        android:layout_marginStart="180dp"
+        android:layout_toEndOf="@id/imageViewProduto"
         android:textColor="@color/colorOnyxBlack"
         android:text="0" />
 </RelativeLayout>

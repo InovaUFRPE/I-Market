@@ -31,19 +31,18 @@ public class CadClienteActivity extends AppCompatActivity {
         String senha = edtSenha.getText().toString();
         String email = edtEmail.getText().toString();
 
-        String strcpf = edtCPF.getText().toString();
-        long cpf = Long.parseLong(strcpf);
-        String strtelefone = edtTelefone.getText().toString();
-        int telefone = Integer.parseInt(strtelefone);
+        String cpf = edtCPF.getText().toString();
+        String telefone = edtTelefone.getText().toString();
         String endereco = edtEndereco.getText().toString();
         String nome = edtNome.getText().toString();
-        String strncartao = edtCartao.getText().toString();
-        int ncartao = Integer.parseInt(strncartao);
+        String ncartao = edtCartao.getText().toString();
+
+
 
         ServicosCliente servicoCliente = new ServicosCliente();
         servicoCliente.cadastrarCliente(email, senha, nome, endereco, cpf, telefone, ncartao);
-        /*Intent it = new Intent(CadClienteActivity.this, MainActivity.class);
-        startActivity(it);*/
+        Intent it = new Intent(CadClienteActivity.this, LoginActivity.class);
+        startActivity(it);
         finish();
     }
 

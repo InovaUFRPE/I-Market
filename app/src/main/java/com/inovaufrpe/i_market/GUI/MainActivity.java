@@ -37,4 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void backGerProd(View view){
+        Intent intent = new Intent(this, GerenciarProdutosActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

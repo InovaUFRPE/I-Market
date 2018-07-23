@@ -16,7 +16,7 @@ public class ServicosCliente {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void cadastrarCliente(String email, String senha, String nome, String endereco, long cpf, int num_telefone,  int num_cartao){
+    public void cadastrarCliente(String email, String senha, String nome, String endereco, String cpf, String num_telefone,  String num_cartao){
         ServicosUsuario servicosUsuario = new ServicosUsuario();
         Usuario usuario = new Usuario();
         usuario.setUid(UUID.randomUUID().toString());
@@ -24,7 +24,7 @@ public class ServicosCliente {
 
         Cliente cliente = new Cliente();
 
-        cliente.setId(UUID.randomUUID().toString());
+        cliente.setId(usuario.getUid());
         cliente.setUid_usuario(usuario.getUid());
         cliente.setNome(nome);
         cliente.setEndereco(endereco);

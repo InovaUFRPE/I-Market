@@ -4,47 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GUI.GerenciarProdutosActivity">
+    tools:context=".GUI.GerenciarProdutosActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonHistorico3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="29dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:onClick="goToCadastroProd"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonHistorico2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonHistorico2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="29dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:onClick="verReceita"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/fabVoltar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_get" />
 
     <ListView
         android:id="@+id/listViewProdutos2"
         android:layout_width="0dp"
-        android:layout_height="438dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textProdutosRegistrados"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintTop_toBottomOf="@+id/textProdutosRegistrados" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabVoltar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="13dp"
         android:layout_marginEnd="24dp"
         android:clickable="true"
-        android:onClick="backToHome"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="backToLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/listViewProdutos2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPagar"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
         android:id="@+id/textProdutosRegistrados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:text="Produtos Registrados"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
+        app:layout_constraintBottom_toTopOf="@+id/listViewProdutos2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
