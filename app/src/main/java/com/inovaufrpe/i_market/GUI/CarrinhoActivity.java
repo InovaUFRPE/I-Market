@@ -179,7 +179,7 @@ public class CarrinhoActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(sessao.getCarrinho().getListaProdutos() != null){
+                if(!sessao.getCarrinho().getListaProdutos().isEmpty()){
                     Compra compra = new Compra();
                     String uid = sessao.getUsuario().getUid();
                     String carrinhoStr = "";
@@ -201,7 +201,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Pagamento efetuado com sucesso!",
                             Toast.LENGTH_LONG).show();
                     dialogPagamento.dismiss();
-                    sessao.setCarrinho(null);
+                    sessao.getCarrinho().getListaProdutos().clear();
                     sessao.setTotalPagar(0.0);
                     Intent intent = new Intent(CarrinhoActivity.this, ListaProdutosActivity.class);
                     startActivity(intent);

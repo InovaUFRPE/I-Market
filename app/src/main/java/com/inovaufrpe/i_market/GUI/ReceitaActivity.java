@@ -70,7 +70,7 @@ public class ReceitaActivity extends AppCompatActivity {
                     }
 
 
-                    dicCompra.put("Data", "Data da Compra" + compra.getDate());
+                    dicCompra.put("Data", "Data da Compra: " + compra.getDate());
                     dicCompra.put("Preço", "Valor: " + precoCompra);
                     arrayCompras.add(dicCompra);
                     compras.add(compra);

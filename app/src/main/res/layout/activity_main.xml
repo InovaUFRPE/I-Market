@@ -30,7 +30,7 @@
         android:layout_marginBottom="52dp"
         android:layout_marginStart="16dp"
         android:clickable="true"
-        android:onClick="goToCadastroProd"
+        android:onClick="cadastraProd"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/buttonLoadCsv"
         app:layout_constraintStart_toStartOf="parent"

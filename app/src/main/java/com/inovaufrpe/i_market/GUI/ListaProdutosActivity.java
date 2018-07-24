@@ -73,7 +73,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
                     }
 
                     dicProdutos.put("Nome", getNomeMarcaProduto(produto));
-                    dicProdutos.put("PreÃ§o", preco);
+                    dicProdutos.put("Preço", preco);
                     arrayProdutos.add(dicProdutos);
                     produtos.add(produto);
                 }
@@ -93,7 +93,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
     public void setListViewProdutos(List<HashMap<String, String>> arrayProdutos) {
         if (!arrayProdutos.isEmpty()) {
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista,
-                    new String[]{"Nome", "PreÃ§o"},
+                    new String[]{"Nome", "Preço"},
                     new int[]{R.id.textViewNome,
                             R.id.textViewPreco});
             listView.setAdapter(adapter);
@@ -177,7 +177,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
                     preco = "R$ " + preco;
                 }
                 dicProdutos.put("Nome", nomeProduto);
-                dicProdutos.put("PreÃ§o", preco);
+                dicProdutos.put("Preço", preco);
                 arrayDicProdutos.add(dicProdutos);
             }
         }
@@ -185,6 +185,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
     }
 
     public void voltarListaCompleta(View view){
+        edtPesquisa.setText("");
         setListViewProdutos(arrayProdutos);
     }
 

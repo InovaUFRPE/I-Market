@@ -33,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
         InputStream inputStream = getResources().openRawResource(R.raw.cadastroprodutos);
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream, Charset.forName("ISO-8859-1")));
         Api api = new Api();
-        api.lerCSV(bufferedReader);
+        if(api.lerCSV(bufferedReader)){
+            Toast.makeText(getApplicationContext(), "Produtos cadastrados com sucesso.",
+                    Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "Alguns produtos já se encontram cadastrados.",
+                    Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void cadastraProd(View view){
 
     }
 

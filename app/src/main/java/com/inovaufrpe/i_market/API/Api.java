@@ -8,6 +8,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.GUI.ListaProdutosActivity;
+import com.inovaufrpe.i_market.Utilidades.Sessao;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,17 +20,20 @@ public class Api {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private ArrayList<Produto> listaProdutos;
+    private Sessao sessao = Sessao.getInstancia();
 
     public Api() {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void lerCSV(BufferedReader bufferedReader) {
+    public boolean lerCSV(BufferedReader bufferedReader) {
         BufferedReader csvConteudo = bufferedReader;
+        Boolean tudoOk = true;
         String linha;
         String sep = ",";
         int cont = 0;
+        ArrayList<Produto> todosProdutos = sessao.getProdutos();
 
         try {
             Produto produto = new Produto();
@@ -42,12 +46,18 @@ public class Api {
                     produto.setPreco(Double.parseDouble(atributos[8].substring(3)));
                     produto.setCategoria(atributos[6]);
                     produto.setMarca(atributos[10]);
-                    insertProduto(produto);
+                    if (!isProdutoCadastrado(produto, todosProdutos)){
+                        insertProduto(produto);
+                    }
+                    else{
+                        tudoOk = false;
+                    }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return tudoOk;
     }
 
     private void insertProduto(Produto produto){
@@ -65,6 +75,18 @@ public class Api {
     
     public void deletarProduto(Produto produto){
         databaseReference.child("Produto").child(produto.getUid()).removeValue();
+    }
+
+    private boolean isProdutoCadastrado(Produto produto, ArrayList<Produto> todosProdutos){
+        Boolean isIt = false;
+        if (todosProdutos != null){
+            for(Produto produto1: todosProdutos){
+                if(produto.getNome().equals(produto1.getNome()) && produto.getMarca().equals(produto1.getMarca())){
+                    isIt = true;
+                }
+            }
+        }
+        return isIt;
     }
 
 }
