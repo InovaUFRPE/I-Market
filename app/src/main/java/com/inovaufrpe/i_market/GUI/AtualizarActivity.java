@@ -11,6 +11,7 @@ import com.inovaufrpe.i_market.API.Api;
 import com.inovaufrpe.i_market.Dominio.Produto;
 import com.inovaufrpe.i_market.R;
 import com.inovaufrpe.i_market.Utilidades.Sessao;
+import com.inovaufrpe.i_market.Negocio.ValidaCadastro;
 
 public class AtualizarActivity extends AppCompatActivity {
     private Sessao sessao = Sessao.getInstancia();
@@ -45,9 +46,45 @@ public class AtualizarActivity extends AppCompatActivity {
         String marca = at_marca.getText().toString();
         String preco = at_preco.getText().toString();
         String categoria = at_categoria.getText().toString();
+        
+        ValidaCadastro validacao = new ValidaCadastro();
+        boolean vazio = false;
+        
+        if (validacao.isCampoVazio(nome)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(marca)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(preco)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(categoria)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if(!vazio){
+            api.updateProduto(sessao.getProdutoAtualizar(), nome, preco, categoria, marca);
+            this.cancelarAtualizar(view);
+            
+        }else{
+            Toast.makeText(getApplicationContext(), "Existem campos invalidos.",
+                            Toast.LENGTH_LONG).show();
 
-        api.updateProduto(sessao.getProdutoAtualizar(), nome, preco, categoria, marca);
-        this.cancelarAtualizar(view);
+        }
+
+        
     }
 
     public void cancelarAtualizar(View view){
