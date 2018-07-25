@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import com.inovaufrpe.i_market.Negocio.ValidaCadastro;
+import com.inovaufrpe.i_market.API.Api;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +46,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cadastraProd(View view){
+        Api api = new Api();
+        
+        
+        ValidaCadastro validacao = new ValidaCadastro();
+        boolean vazio = false;
+        
+        /*if (validacao.isCampoVazio(nome)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(marca)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(preco)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if (validacao.isCampoVazio(categoria)){
+            edtNome.requestFocus();
+            edtNome.setError("Campo Nome está vazio.");
+            vazio = true;
+        }
+        
+        if(!vazio){
+            Produto produto = new Produto();
+            produto.setUid(UUID.randomUUID().toString());
+            api.updateProduto(produto, nome, preco, categoria, marca);
+            this.backGerProd(view);
+            
+        }else{
+            Toast.makeText(getApplicationContext(), "Existem campos invalidos.",
+                            Toast.LENGTH_LONG).show();
+
+        }*/
 
     }
 
