@@ -10,7 +10,7 @@ import android.util.Patterns;
 @SuppressWarnings({"FieldCanBeLocal", "BooleanMethodIsAlwaysInverted"})
 public class ValidaCadastro {
   private final int TAMANHO_SENHA = 6;
-  private final int TAMANHO_CPF = 14;
+  private final int TAMANHO_CPF = 11;
 
   public boolean isCampoVazio(String texto){
     return (texto.trim().isEmpty() || TextUtils.isEmpty(texto));
@@ -26,6 +26,14 @@ public class ValidaCadastro {
 
   public boolean isCpfValida(String texto) {
     return !isCampoVazio(texto) && texto.length() == TAMANHO_CPF;
+  }
+
+  public boolean isTelefone(String texto){
+    return texto.length() == 11;
+  }
+
+  public boolean isCartao(String texto){
+    return texto.length() == 16;
   }
 
 }

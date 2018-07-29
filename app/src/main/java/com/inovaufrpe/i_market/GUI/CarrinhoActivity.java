@@ -73,7 +73,11 @@ public class CarrinhoActivity extends AppCompatActivity {
                     String preco = Double.toString(produto.getPreco());
 
                     int indexPonto = preco.indexOf(".");
-                    if (preco.substring(indexPonto, preco.length()).length()==2){
+
+                    if (preco.substring(indexPonto, preco.length()).length() > 3){
+                        preco = "R$ " + preco.substring(0,indexPonto+3);
+                    }
+                    else if (preco.substring(indexPonto, preco.length()).length()==2){
                         preco = "R$ " + preco + "0";
                     }
                     else{
@@ -83,6 +87,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                     dicProdutos.put("Preço", preco);
                     dicProdutos.put("Qtd", Integer.toString(qtd));
                     arrayProdutos.add(dicProdutos);
+                    produtos.add(produto);
                 }
             }
             sessao.setTotalPagar(acumulado);
@@ -96,17 +101,17 @@ public class CarrinhoActivity extends AppCompatActivity {
                             R.id.textViewQtd});
             textTotal.setText(precoTotal);
             listView.setAdapter(adapter);
-            /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                     // When clicked, show a toast with the TextView text
                     final Dialog d = new Dialog(CarrinhoActivity.this);
-                    d.setTitle("Escolha a quantidade");
-                    d.setContentView(R.layout.dialog_quant_produtos);
-                    Button btnCancelar = d.findViewById(R.id.button1);
-                    Button btnAdicionar =  d.findViewById(R.id.button2);
-                    final NumberPicker np = d.findViewById(R.id.numberPicker1);
+                    d.setTitle("Altere a quantidade");
+                    d.setContentView(R.layout.dialog_change_qtd_carrinho);
+                    Button btnCancelar = d.findViewById(R.id.buttonCancelarCart);
+                    Button btnAlterar =  d.findViewById(R.id.buttonAlterar);
+                    final NumberPicker np = d.findViewById(R.id.numberPicker2);
                     np.setMaxValue(100); // max value 100
-                    np.setMinValue(1);   // min value 0
+                    np.setMinValue(0);   // min value 0
                     np.setWrapSelectorWheel(false);
                     np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                         @Override
@@ -114,14 +119,32 @@ public class CarrinhoActivity extends AppCompatActivity {
 
                         }
                     });
-                    btnAdicionar.setOnClickListener(new View.OnClickListener()
+                    btnAlterar.setOnClickListener(new View.OnClickListener()
                     {
                         @Override
                         public void onClick(View v) {
                             int quantidade = np.getValue();
-                            Produto produto = produtos.get(position);
-                            sessao.getCarrinho().addNovoProduto(produto, quantidade);
-                            d.dismiss();
+                            if(quantidade == 0){
+                                Produto produto = produtos.get(position);
+                                sessao.getCarrinho().alteraQtdProduto(produto, quantidade);
+                                Toast.makeText(CarrinhoActivity.this, "Produto removido do carrinho",
+                                        Toast.LENGTH_SHORT).show();
+                                d.dismiss();
+                                Intent intent = new Intent(CarrinhoActivity.this, CarrinhoActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                            else{
+                                Produto produto = produtos.get(position);
+                                sessao.getCarrinho().alteraQtdProduto(produto, quantidade);
+                                d.dismiss();
+                                Intent intent = new Intent(CarrinhoActivity.this, CarrinhoActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+
                         }
                     });
                     btnCancelar.setOnClickListener(new View.OnClickListener()
@@ -133,7 +156,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                     });
                     d.show();
                 }
-            });*/
+            });
             //} else {
             //    Auxiliar.criarToast(getApplicationContext(), getString(R.string.sp_excecao_sem_materiais));
             //}

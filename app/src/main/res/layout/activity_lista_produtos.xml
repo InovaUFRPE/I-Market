@@ -61,15 +61,28 @@
         android:layout_marginStart="2dp">
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButtonVoltar10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/floatingActionButtonHistorico"
+            android:layout_marginBottom="14dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="goToLogin"
+            app:backgroundTint="@color/colorAccent"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButtonHistorico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/floatingActionButtonCarrinho"
+            android:layout_marginBottom="137dp"
             android:clickable="true"
             android:onClick="goToHistorico"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="100dp"
-            android:layout_marginEnd="20dp"
+            app:backgroundTint="@android:color/holo_blue_dark"
             app:srcCompat="@android:drawable/ic_menu_agenda" />
 
         <android.support.design.widget.FloatingActionButton
@@ -78,8 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="27dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="74dp"
+            android:layout_marginEnd="22dp"
             android:layout_weight="1"
             android:clickable="true"
             android:onClick="goToCarrinho"

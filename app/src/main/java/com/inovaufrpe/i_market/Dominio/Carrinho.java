@@ -32,7 +32,7 @@ public class Carrinho{
     }
   }
 
-  public void removeProduto(Produto produto, int quantidade){
+  public void alteraQtdProduto(Produto produto, int quantidade){
     /*
     * o usuario pode remover uma quantidadde ou todas as unidades de um produto
     * vamos comparar a quantidade que sera removida com a existente,
@@ -41,9 +41,8 @@ public class Carrinho{
     */
     String uid = produto.getUid();
     int qtdAntiga = listaProdutos.get(uid);
-    if (qtdAntiga > quantidade){
-      listaProdutos.put(uid, qtdAntiga - quantidade);
-
+    if (quantidade != 0){
+      listaProdutos.put(uid, quantidade);
     }else{
       this.listaProdutos.remove(uid);
     }

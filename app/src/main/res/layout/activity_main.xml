@@ -7,11 +7,23 @@
     tools:context=".GUI.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <Spinner
+        android:id="@+id/spinnerCategoria3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonCadProduto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCatMA" />
+
     <Button
         android:id="@+id/buttonLoadCsv2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="26dp"
         android:layout_marginEnd="18dp"
         android:layout_marginStart="18dp"
         android:onClick="loadCsv"
@@ -29,12 +41,12 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="52dp"
         android:layout_marginStart="16dp"
+        android:backgroundTint="@color/colorPrimary"
         android:clickable="true"
         android:onClick="cadastraProd"
-        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/buttonLoadCsv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCategoria"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoria3"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <EditText
@@ -57,13 +69,13 @@
         android:id="@+id/editTextPreco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="9dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Preço"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCategoria"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCatMA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextMarca" />
@@ -72,7 +84,7 @@
         android:id="@+id/editTextMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="18dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
@@ -90,7 +102,6 @@
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="18dp"
         android:layout_marginStart="18dp"
-        android:backgroundTint="@color/colorPrimary"
         android:onClick="loadCsv"
         android:text="Carregar CSV"
         android:textColor="@color/colorWhite"
@@ -99,18 +110,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/floatingActionButtonCadProduto" />
 
-    <EditText
-        android:id="@+id/editTextCategoria"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_marginEnd="16dp"
+    <TextView
+        android:id="@+id/textViewCatMA"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Categoria"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonCadProduto"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Categoria"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCategoria3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
 

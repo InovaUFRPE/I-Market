@@ -41,24 +41,24 @@ public class CadClienteActivity extends AppCompatActivity {
 
         ValidaCadastro validacao = new ValidaCadastro();
         boolean vazio = false;
-        if (validacao.isCampoVazio(email) && !validacao.isEmail(email)){
+        if (validacao.isCampoVazio(email) || !validacao.isEmail(email)){
             edtEmail.requestFocus();
             edtEmail.setError("Email inválido.");
             vazio = true;
         }
-        if (validacao.isCampoVazio(senha) && !validacao.isSenhaValida(senha)){
+        if (validacao.isCampoVazio(senha) || !validacao.isSenhaValida(senha)){
             edtSenha.requestFocus();
             edtSenha.setError("Senha deve conter no mínimo 6 caractéres.");
             vazio = true;
         }
-        if (validacao.isCampoVazio(cpf) && !validacao.isCpfValida(cpf)){
+        if (validacao.isCampoVazio(cpf) || !validacao.isCpfValida(cpf)){
             edtCPF.requestFocus();
             edtCPF.setError("CPF inválido.");
             vazio = true;
         }
-        if (validacao.isCampoVazio(telefone)){
+        if (validacao.isCampoVazio(telefone) || !validacao.isTelefone(telefone)){
             edtTelefone.requestFocus();
-            edtTelefone.setError("Telefone Inválido");
+            edtTelefone.setError("Telefone deve conter 11 dígitos");
             vazio = true;
         }
         if (validacao.isCampoVazio(endereco)){
@@ -71,9 +71,9 @@ public class CadClienteActivity extends AppCompatActivity {
             edtNome.setError("Campo Nome está vazio.");
             vazio = true;
         }
-        if (validacao.isCampoVazio(ncartao)){
+        if (validacao.isCampoVazio(ncartao) || !validacao.isCartao(ncartao)){
             edtCartao.requestFocus();
-            edtCartao.setError("Número Inválido");
+            edtCartao.setError("O número do cartão deve conter 16 dígitos");
             vazio = true;
         }
         if(!vazio){

@@ -4,13 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GUI.AtualizarActivity">
+    tools:context=".GUI.AtualizarActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <Spinner
+        android:id="@+id/spinnerCategoriaAt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="111dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginStart="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAtualizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCatMA3" />
 
     <Button
         android:id="@+id/buttonCancelarAtualizar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="27dp"
         android:layout_marginEnd="18dp"
         android:layout_marginStart="18dp"
         android:onClick="cancelarAtualizar"
@@ -23,8 +36,8 @@
     <EditText
         android:id="@+id/editTextNomeAtualizar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -40,13 +53,13 @@
         android:id="@+id/editTextPrecoAtualizar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="13dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Preço"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCategoriaAtualizar"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCatMA3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextMarcaAtualizar" />
@@ -55,7 +68,7 @@
         android:id="@+id/editTextMarcaAtualizar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="19dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:ems="10"
@@ -80,20 +93,17 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonCancelarAtualizar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCategoriaAtualizar" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoriaAt" />
 
-    <EditText
-        android:id="@+id/editTextCategoriaAtualizar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="118dp"
-        android:layout_marginEnd="16dp"
+    <TextView
+        android:id="@+id/textViewCatMA3"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginBottom="11dp"
         android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="Categoria"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAtualizar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Categoria"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCategoriaAt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPrecoAtualizar" />
 

@@ -60,7 +60,7 @@ public class Api {
         return tudoOk;
     }
 
-    private void insertProduto(Produto produto){
+    public void insertProduto(Produto produto){
         databaseReference.child("Produto").child(produto.getUid()).setValue(produto);
     }
     

@@ -41,7 +41,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
     private List<HashMap<String, String>> arrayProdutos = new ArrayList<>();
     private String preco = "R$ 0.00";
     private TextView txtPreco;
-    private String[] listaCategorias = {"Todas","Bebidas","Frios","Laticínios","Massas","Mercearia"};
+    private String[] listaCategorias = {"Todas","Bebidas","Frios","LaticÃ­nios","Massas","Mercearia"};
     private Spinner spinner;
 
     @Override
@@ -83,7 +83,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
                                 preco = "R$ " + preco;
                             }
                             dicProdutos.put("Nome", getNomeMarcaProduto(produto));
-                            dicProdutos.put("Preço", preco);
+                            dicProdutos.put("Preco", preco);
                             arrayDicProdutos.add(dicProdutos);
                         }
                     }
@@ -122,7 +122,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
                     }
 
                     dicProdutos.put("Nome", getNomeMarcaProduto(produto));
-                    dicProdutos.put("Preço", preco);
+                    dicProdutos.put("Preco", preco);
                     arrayProdutos.add(dicProdutos);
                     produtos.add(produto);
                 }
@@ -143,7 +143,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
     public void setListViewProdutos(List<HashMap<String, String>> arrayProdutos) {
         if (!arrayProdutos.isEmpty()) {
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista,
-                    new String[]{"Nome", "Preço"},
+                    new String[]{"Nome", "Preco"},
                     new int[]{R.id.textViewNome,
                             R.id.textViewPreco});
             listView.setAdapter(adapter);
@@ -174,7 +174,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             final Dialog d2 = new Dialog(GerenciarProdutosActivity.this);
                             d2.setContentView(R.layout.dialog_comfirmcao_pag);
-                            d2.setTitle("Confirmar Pagamento?");
+                            d2.setTitle("Quer mesmo remover este produto?");
                             Button btnConfirmar = d2.findViewById(R.id.buttonConfirmar);
                             Button btnCancelar2 =  d2.findViewById(R.id.buttonCancelar2);
                             btnConfirmar.setOnClickListener(new View.OnClickListener() {
@@ -271,7 +271,7 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
         finish();
     }
 
-    public void goToCadastroProd(View view){
+    public void goToCadastroPro(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
