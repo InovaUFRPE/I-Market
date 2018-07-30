@@ -40,13 +40,23 @@ public class AtualizarActivity extends AppCompatActivity {
 
         at_nome.setText(produtoAtualizar.getNome());
         at_marca.setText(produtoAtualizar.getMarca());
-        at_preco.setText(Double.toString(produtoAtualizar.getPreco()));
+
+        String preco = Double.toString(produtoAtualizar.getPreco());
+        int indexPonto = preco.indexOf(".");
+
+        if (preco.substring(indexPonto, preco.length()).length() > 3){
+            preco = preco.substring(0,indexPonto+3);
+        }
+        else if (preco.substring(indexPonto, preco.length()).length()==2){
+            preco = preco + "0";
+        }
+        at_preco.setText(preco);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, listaCategorias);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         at_categoria.setAdapter(adapter);
         int categoriaAtualIndex = adapter.getPosition(produtoAtualizar.getCategoria());
-        at_categoria.setId(categoriaAtualIndex);
+        at_categoria.setSelection(categoriaAtualIndex);
 
         at_categoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
 

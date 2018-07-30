@@ -15,17 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CadClienteActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CadClienteActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CarrinhoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CarrinhoActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/GerenciarProdutosActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/GerenciarProdutosActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/HistoricoComprasActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/HistoricoComprasActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutosCompraActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutosCompraActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ReceitaActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ReceitaActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,21 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProdutoAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutoAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdutosCompraActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProdutosCompraActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutosCompraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="85" column="30" lean-forward="false" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+            <state relative-caret-position="-381">
+              <caret line="42" column="66" lean-forward="false" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -94,11 +75,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListaProdutosActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ListaProdutosActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="486">
               <caret line="209" column="13" lean-forward="false" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AtualizarActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -147,8 +138,8 @@
       <file leaf-file-name="CarrinhoActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CarrinhoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-568">
-              <caret line="179" column="10" lean-forward="false" selection-start-line="179" selection-start-column="10" selection-end-line="179" selection-end-column="10" />
+            <state relative-caret-position="265">
+              <caret line="74" column="52" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="56" />
               <folding>
                 <element signature="e#10567#10734#0" expanded="true" />
                 <element signature="e#10733#10734#0" expanded="true" />
@@ -2217,7 +2208,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_comfirmcao_pag.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/Negocio/ValidaCadastro.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_lista_produtos.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CadClienteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/GerenciarProdutosActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/HistoricoComprasActivity.java" />
@@ -2226,6 +2216,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ReceitaActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CarrinhoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java" />
       </list>
     </option>
   </component>
@@ -2504,7 +2495,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2950,50 +2940,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="117" column="14" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="119" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CadClienteActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="97" column="17" lean-forward="false" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutoAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutosCompraActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="85" column="30" lean-forward="false" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/HistoricoComprasActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -3022,10 +2972,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="209" column="13" lean-forward="false" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/HistoricoComprasActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CadClienteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="97" column="17" lean-forward="false" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/CarrinhoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="179" column="10" lean-forward="false" selection-start-line="179" selection-start-column="10" selection-end-line="179" selection-end-column="10" />
+        <state relative-caret-position="265">
+          <caret line="74" column="52" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="56" />
           <folding>
             <element signature="e#10567#10734#0" expanded="true" />
             <element signature="e#10733#10734#0" expanded="true" />
@@ -3033,10 +3015,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ListaProdutosActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/AtualizarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="209" column="13" lean-forward="false" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/inovaufrpe/i_market/GUI/ProdutosCompraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="42" column="66" lean-forward="false" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
           <folding />
         </state>
       </provider>
