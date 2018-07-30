@@ -79,4 +79,12 @@ public class ProdutosCompraActivity extends AppCompatActivity {
                         R.id.textViewQtd});
         listView.setAdapter(adapter);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HistoricoComprasActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 }

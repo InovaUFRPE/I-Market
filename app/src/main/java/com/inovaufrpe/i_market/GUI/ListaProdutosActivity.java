@@ -201,9 +201,19 @@ public class ListaProdutosActivity extends AppCompatActivity {
     }
 
     public void goToLogin(View view){
+        sessao.getCarrinho().getListaProdutos().clear();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        sessao.getCarrinho().getListaProdutos().clear();
+        Intent intent = new Intent(ListaProdutosActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
     }
 
 }

@@ -110,4 +110,12 @@ public class AtualizarActivity extends AppCompatActivity {
         finish();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AtualizarActivity.this, GerenciarProdutosActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 }

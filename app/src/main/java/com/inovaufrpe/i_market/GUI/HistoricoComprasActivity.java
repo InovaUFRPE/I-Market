@@ -118,4 +118,12 @@ public class HistoricoComprasActivity extends AppCompatActivity {
         String newData  = "Data da Compra: " + data3 + " " + horario;
         return newData;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ListaProdutosActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 }

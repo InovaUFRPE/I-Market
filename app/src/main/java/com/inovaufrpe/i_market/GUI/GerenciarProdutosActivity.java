@@ -277,4 +277,12 @@ public class GerenciarProdutosActivity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
+
 }

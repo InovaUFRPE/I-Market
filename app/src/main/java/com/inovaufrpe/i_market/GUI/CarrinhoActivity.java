@@ -171,7 +171,10 @@ public class CarrinhoActivity extends AppCompatActivity {
         //sessao.setTotalPagar(dPrecoTotal);
         String sPrecoTotal = Double.toString(total);
         int indexPonto = sPrecoTotal.indexOf(".");
-        if (sPrecoTotal.substring(indexPonto, sPrecoTotal.length()).length()==2){
+        if(sPrecoTotal.substring(indexPonto, sPrecoTotal.length()).length() > 3){
+            sPrecoTotal = "R$ " + sPrecoTotal.substring(0,indexPonto+3);
+        }
+        else if(sPrecoTotal.substring(indexPonto, sPrecoTotal.length()).length()==2){
             sPrecoTotal = "R$ " + sPrecoTotal + "0";
         }
         else{
@@ -251,6 +254,14 @@ public class CarrinhoActivity extends AppCompatActivity {
         dialogPagamento.show();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CarrinhoActivity.this, ListaProdutosActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
     }
 
 

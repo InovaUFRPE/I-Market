@@ -90,5 +90,13 @@ public class CadClienteActivity extends AppCompatActivity {
     public void cancelarCadastro(View view){
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CadClienteActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 }
 

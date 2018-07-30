@@ -120,4 +120,12 @@ public class ReceitaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, GerenciarProdutosActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 }
