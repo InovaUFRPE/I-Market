@@ -20,7 +20,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonHistorico2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoria"
+        app:layout_constraintTop_toBottomOf="@+id/textProdutosRegistrados"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <android.support.design.widget.FloatingActionButton
@@ -39,23 +39,11 @@
         app:layout_constraintTop_toBottomOf="@+id/floatingActionButtonHistorico3"
         app:srcCompat="@android:drawable/ic_input_get" />
 
-    <ListView
-        android:id="@+id/listViewProdutos2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoria" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabVoltar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="19dp"
         android:layout_marginEnd="24dp"
         android:clickable="true"
         android:onClick="backToLogin"
@@ -66,28 +54,36 @@
 
     <TextView
         android:id="@+id/textProdutosRegistrados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="313dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="270dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="6dp"
         android:text="Produtos Registrados"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerCategoria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonHistorico3"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCategoria"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerCategoria"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="228dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="9dp"
         android:layout_marginEnd="9dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonHistorico3"
+        app:layout_constraintBottom_toTopOf="@+id/listViewProdutos2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textProdutosRegistrados" />
+
+    <ListView
+        android:id="@+id/listViewProdutos2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoria" />
 </android.support.constraint.ConstraintLayout>

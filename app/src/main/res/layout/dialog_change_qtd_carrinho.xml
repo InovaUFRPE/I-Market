@@ -1,35 +1,51 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <NumberPicker
-        android:id="@+id/numberPicker2"
-        android:layout_width="wrap_content"
+        android:id="@+id/numberPicker1"
+        android:layout_width="63dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp" />
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonCancelarCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker2"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="98dp"
-        android:layout_toRightOf="@+id/numberPicker2"
-        android:text="Cancelar" />
+        android:id="@+id/button2"
+        android:layout_width="112dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/numberPicker1"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/numberPicker1"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <Button
-        android:id="@+id/buttonAlterar"
-        android:layout_width="wrap_content"
+        android:id="@+id/button1"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonCancelarCart"
-        android:layout_alignBottom="@+id/buttonCancelarCart"
-        android:layout_marginRight="16dp"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_marginBottom="13dp"
+        android:layout_toLeftOf="@+id/numberPicker1"
         android:backgroundTint="@color/colorPrimary"
+        android:text="Alterar"
         android:textColor="@color/colorWhite"
-        android:layout_toLeftOf="@+id/numberPicker2"
-        android:text="Alterar" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker1" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

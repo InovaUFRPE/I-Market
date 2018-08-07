@@ -84,7 +84,7 @@ public class CarrinhoActivity extends AppCompatActivity {
                         preco = "R$ " + preco;
                     }
                     dicProdutos.put("Nome", getNomeMarcaProduto(produto));
-                    dicProdutos.put("Preço", preco);
+                    dicProdutos.put("Preï¿½o", preco);
                     dicProdutos.put("Qtd", Integer.toString(qtd));
                     arrayProdutos.add(dicProdutos);
                     produtos.add(produto);
@@ -95,7 +95,7 @@ public class CarrinhoActivity extends AppCompatActivity {
 
 
             SimpleAdapter adapter = new SimpleAdapter(this, arrayProdutos, R.layout.item_lista2,
-                    new String[]{"Nome", "Preço", "Qtd"},
+                    new String[]{"Nome", "Preï¿½o", "Qtd"},
                     new int[]{R.id.textViewNome,
                             R.id.textViewPreco,
                             R.id.textViewQtd});
@@ -107,9 +107,9 @@ public class CarrinhoActivity extends AppCompatActivity {
                     final Dialog d = new Dialog(CarrinhoActivity.this);
                     d.setTitle("Altere a quantidade");
                     d.setContentView(R.layout.dialog_change_qtd_carrinho);
-                    Button btnCancelar = d.findViewById(R.id.buttonCancelarCart);
-                    Button btnAlterar =  d.findViewById(R.id.buttonAlterar);
-                    final NumberPicker np = d.findViewById(R.id.numberPicker2);
+                    Button btnCancelar = d.findViewById(R.id.button2);
+                    Button btnAlterar =  d.findViewById(R.id.button1);
+                    final NumberPicker np = d.findViewById(R.id.numberPicker1);
                     np.setMaxValue(100); // max value 100
                     np.setMinValue(0);   // min value 0
                     np.setWrapSelectorWheel(false);
